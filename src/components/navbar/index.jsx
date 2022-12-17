@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import PlaylistForm from '../playlist-form';
 
-const NavBar = () => {
+const NavBar = ({ getPlaylistById }) => {
 	const [open, setOpen] = useState(false);
 
 	const handleClickOpen = () => {
@@ -18,7 +18,7 @@ const NavBar = () => {
 	};
 
 	const getPlaylistId = (playlistId) => {
-		console.log(playlistId);
+		getPlaylistById(playlistId);
 	};
 
 	return (
