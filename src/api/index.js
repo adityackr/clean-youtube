@@ -2,13 +2,13 @@ import axios from 'axios';
 
 const key = import.meta.env.VITE_API_KEY;
 
-const getPlaylistItem = async (playlistID, pageToken = '', result = []) => {
-	const URL = `https://www.googleapis.com/youtube/v3/playlistItems?key=${key}&part=id,contentDetails,snippet&maxResults=50&playlistId=${playlistID}&pageToken=${pageToken}`;
+const getPlaylistItem = async (playlistId, pageToken = '', result = []) => {
+	const URL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=${playlistId}&key=${key}&pageToken=${pageToken}`;
 
 	const { data } = await axios.get(URL);
 	result = [...result, ...data.items];
 	if (data.nextPageToken) {
-		result = getPlaylist(playlistID, data.nextPageToken, result);
+		result = getPlaylist(playlistId, data.nextPageToken, result);
 	}
 	return result;
 };
@@ -31,13 +31,13 @@ const getPlaylist = async (playlistId) => {
 		const {
 			title,
 			description,
-			thumbnails: { medium },
+			thumbnails: { high },
 		} = item.snippet;
 
 		return {
 			title,
 			description,
-			thumbnail: medium,
+			thumbnail: high,
 			contentDetails: item.contentDetails,
 		};
 	});

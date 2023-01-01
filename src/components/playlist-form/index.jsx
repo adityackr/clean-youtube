@@ -10,7 +10,7 @@ import { useState } from 'react';
 const PlaylistForm = ({ open, handleClose, getPlaylistId }) => {
 	const [state, setState] = useState('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = () => {
 		// TODO: handle url later
 		if (!state) {
 			alert('Invalid State');
@@ -26,14 +26,14 @@ const PlaylistForm = ({ open, handleClose, getPlaylistId }) => {
 			<DialogTitle>Add Playlist</DialogTitle>
 			<DialogContent>
 				<DialogContentText>
-					To add a new playlist please insert the playlist id or link. Please
-					make sure the link is correct. Otherwise, we won't be able to fetch
+					To add a new playlist please insert the playlist id or playlist link.
+					Please make sure the link is correct. Otherwise we won't able to fetch
 					the playlist information.
 				</DialogContentText>
 				<TextField
 					autoFocus
 					margin="dense"
-					label="PlaylistId or Link"
+					label="Playlist ID or Link"
 					fullWidth
 					variant="standard"
 					onChange={(e) => setState(e.target.value)}
