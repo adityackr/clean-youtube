@@ -8,13 +8,13 @@ import Navbar from './components/navbar';
 import PlaylistCardItem from './components/playlist-card-item';
 import usePlaylists from './hooks/usePlaylists';
 
-const playlistId = 'PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl';
+const playlistId = 'PL_XxuZqN0xVBPhR5bjBIKyBjTo8pK99gN';
 
 const HomePage = ({ playlistArray }) => {
-	const playlist = useStoreActions((actions) => actions.playlist);
+	const playlists = useStoreActions((actions) => actions.playlists);
 
 	useEffect(() => {
-		playlist.getPlaylistData(playlistId);
+		playlists.getPlaylist(playlistId);
 	}, []);
 
 	return (
@@ -66,9 +66,6 @@ const App = () => {
 	const { playlists, error, getPlaylistById } = usePlaylists();
 
 	const playlistArray = Object.values(playlists);
-
-	console.log(playlists);
-	console.log(error);
 
 	return (
 		<BrowserRouter>
