@@ -43,13 +43,13 @@ const getPlaylist = async (playlistId) => {
 	});
 
 	return {
+		playlistItems,
 		playlistId,
 		playlistTitle,
 		playlistDescription,
 		playlistThumbnail: thumbnails.default,
 		channelId,
 		channelTitle,
-		playlistItems,
 	};
 };
 

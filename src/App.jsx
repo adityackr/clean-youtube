@@ -1,20 +1,29 @@
 import { Grid, Typography } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Container } from '@mui/system';
+import { useStoreActions } from 'easy-peasy';
+import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import Navbar from './components/navbar';
 import PlaylistCardItem from './components/playlist-card-item';
 import usePlaylists from './hooks/usePlaylists';
 
+const playlistId = 'PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl';
+
 const HomePage = ({ playlistArray }) => {
+	const playlist = useStoreActions((actions) => actions.playlist);
+
+	useEffect(() => {
+		playlist.getPlaylistData(playlistId);
+	}, []);
+
 	return (
 		<Container maxWidth={'lg'} sx={{ my: 16 }}>
 			{playlistArray.length > 0 && (
 				<Grid container alignItems="stretch">
 					{playlistArray.map((item) => (
-						<Grid item xs={12} md={6} lg={4} mb={2}>
+						<Grid item xs={12} md={6} lg={4} mb={2} key={item.playlistId}>
 							<PlaylistCardItem
-								key={item.playlistId}
 								playlistThumbnail={item.playlistThumbnail}
 								playlistTitle={item.playlistTitle}
 								channelTitle={item.channelTitle}
