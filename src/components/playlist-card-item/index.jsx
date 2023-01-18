@@ -1,4 +1,5 @@
 import { Card, CardContent, CardMedia, Link, Typography } from '@mui/material';
+import { useStoreActions } from 'easy-peasy';
 import { Link as RouterLink } from 'react-router-dom';
 
 const PlaylistCardItem = ({
@@ -7,11 +8,18 @@ const PlaylistCardItem = ({
 	channelTitle,
 	playlistId,
 }) => {
+	const recent = useStoreActions((actions) => actions.recent);
+
+	const handleClick = () => {
+		recent.addToRecent(playlistId);
+	};
+
 	return (
 		<Link
 			to={`/player/${playlistId}`}
 			component={RouterLink}
 			sx={{ textDecoration: 'none' }}
+			onClick={handleClick}
 		>
 			<Card
 				sx={{

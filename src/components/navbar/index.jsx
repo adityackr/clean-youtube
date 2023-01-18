@@ -37,7 +37,7 @@ const Navbar = () => {
 								component={RouterLink}
 								sx={{ textDecoration: 'none', color: '#fff' }}
 							>
-								<Typography variant="h4">Clean Youtube</Typography>
+								<Typography variant="h4">Clean YouTube</Typography>
 							</Link>
 							<Link
 								href="https://github.com/adityackr"
@@ -45,6 +45,47 @@ const Navbar = () => {
 								sx={{ textDecoration: 'none', color: '#fff' }}
 							>
 								<Typography variant="body1">By Aditya Chakraborty</Typography>
+							</Link>
+						</Stack>
+						<Stack sx={{ flexGrow: 1 }} direction="row" spacing={3}>
+							<Link
+								to="/"
+								component={RouterLink}
+								sx={{
+									textDecoration: 'none',
+									color: '#fff',
+									'&:hover': {
+										borderBottom: '2px solid #FF0000',
+									},
+								}}
+							>
+								<Typography variant="h6">Home</Typography>
+							</Link>
+							<Link
+								to="/recent"
+								component={RouterLink}
+								sx={{
+									textDecoration: 'none',
+									color: '#fff',
+									'&:hover': {
+										borderBottom: '2px solid #FF0000',
+									},
+								}}
+							>
+								<Typography variant="h6">Recent</Typography>
+							</Link>
+							<Link
+								to="/favorites"
+								component={RouterLink}
+								sx={{
+									textDecoration: 'none',
+									color: '#fff',
+									'&:hover': {
+										borderBottom: '2px solid #FF0000',
+									},
+								}}
+							>
+								<Typography variant="h6">Favorites</Typography>
 							</Link>
 						</Stack>
 						<Button

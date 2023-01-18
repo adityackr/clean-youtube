@@ -4,6 +4,7 @@ import HomePage from './components/home-page';
 import Navbar from './components/navbar';
 import NotFound from './components/not-found';
 import PlaylistPage from './components/playlist-page';
+import RecentPage from './components/recent-page';
 
 const App = () => {
 	return (
@@ -11,8 +12,9 @@ const App = () => {
 			<CssBaseline />
 			<Navbar />
 			<Routes>
-				<Route path="/" element={<HomePage />} />
 				<Route path="/player/:playlistId" element={<PlaylistPage />} />
+				<Route path="/recent" element={<RecentPage />} />
+				<Route path="/" element={<HomePage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>

@@ -2,12 +2,10 @@ import { Container, Grid, Typography } from '@mui/material';
 import { useStoreState } from 'easy-peasy';
 import PlaylistCardItem from '../playlist-card-item';
 
-const HomePage = () => {
+const RecentPage = () => {
 	const playlists = useStoreState((state) => state.playlist.data);
-
-	const playlistArray = Object.values(playlists);
-
-	// console.log(playlistArray);
+	const recent = useStoreState((state) => state.recent.items);
+	const recentArray = recent.map((item) => playlists[item]).slice(0, 5);
 
 	return (
 		<Container maxWidth={'lg'} sx={{ my: 16 }}>
@@ -16,11 +14,11 @@ const HomePage = () => {
 				align="center"
 				sx={{ marginBottom: 2, textDecoration: 'underline' }}
 			>
-				My Playlists
+				Recent Playlists
 			</Typography>
-			{playlistArray.length > 0 && (
+			{recentArray.length > 0 && (
 				<Grid container alignItems="stretch">
-					{playlistArray.map((item) => (
+					{recentArray.map((item) => (
 						<Grid item xs={12} md={6} lg={4} mb={2} key={item.playlistId}>
 							<PlaylistCardItem
 								playlistId={item.playlistId}
@@ -36,4 +34,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default RecentPage;
