@@ -48,7 +48,7 @@ const getPlaylist = async (playlistId) => {
 		playlistId,
 		playlistTitle,
 		playlistDescription,
-		playlistThumbnails: thumbnails.default,
+		playlistThumbnail: thumbnails.default,
 		channelId,
 		channelTitle,
 	};

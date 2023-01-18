@@ -1,14 +1,23 @@
-import { useStoreActions } from 'easy-peasy';
-import { useEffect } from 'react';
-
-const playlistID = 'PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl';
+import { CssBaseline } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './components/home-page';
+import Navbar from './components/navbar';
 
 const App = () => {
-	const playlist = useStoreActions((actions) => actions.playlist);
-	useEffect(() => {
-		playlist.getPlaylist(playlistID);
-	}, []);
-	return <div>App</div>;
+	return (
+		<BrowserRouter>
+			<CssBaseline />
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				{/* <Route
+					path="/player/:playlistId"
+					element={<PlayerPage playlists={playlists} />}
+				/>
+				<Route path="*" element={<NotFound />} /> */}
+			</Routes>
+		</BrowserRouter>
+	);
 };
 
 export default App;
