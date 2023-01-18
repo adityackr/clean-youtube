@@ -1,13 +1,12 @@
+import { useStoreActions } from 'easy-peasy';
 import { useEffect } from 'react';
-import getPlaylist from './api';
+
+const playlistID = 'PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl';
 
 const App = () => {
+	const playlist = useStoreActions((actions) => actions.playlist);
 	useEffect(() => {
-		async function fetchData() {
-			const response = await getPlaylist('PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl');
-			console.log(response);
-		}
-		fetchData();
+		playlist.getPlaylist(playlistID);
 	}, []);
 	return <div>App</div>;
 };
