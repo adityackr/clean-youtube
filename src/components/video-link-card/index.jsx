@@ -4,43 +4,50 @@ import {
 	CardContent,
 	CardMedia,
 	Link,
+	Stack,
 	Typography,
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 
 const VideoLinkCard = ({ title, channelTitle, thumbnail, channelId }) => {
-	const theme = useTheme();
-
 	return (
-		<Card
-			sx={{ display: 'flex', marginTop: 3, justifyContent: 'space-between' }}
-		>
-			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="h5">
-						{title}
-					</Typography>
-					<Link
-						href={`https://www.youtube.com/channel/${channelId}`}
-						target={'_blank'}
-						sx={{ textDecoration: 'none', color: '#000' }}
-					>
+		<Card sx={{ marginTop: 3 }}>
+			<Stack
+				direction={{ sm: 'column', md: 'row' }}
+				justifyContent="space-between"
+				alignItems="center"
+				spacing={{ sm: 1, md: 2 }}
+			>
+				<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+					<CardContent>
 						<Typography
-							variant="subtitle1"
-							color="text.secondary"
 							component="div"
+							variant="subtitle1"
+							sx={{ fontWeight: 'bold ' }}
 						>
-							{channelTitle}
+							{title}
 						</Typography>
-					</Link>
-				</CardContent>
-			</Box>
-			<CardMedia
-				component="img"
-				sx={{ width: thumbnail.width }}
-				image={thumbnail.url}
-				alt={title}
-			/>
+						<Link
+							href={`https://www.youtube.com/channel/${channelId}`}
+							target={'_blank'}
+							sx={{ textDecoration: 'none', color: '#000' }}
+						>
+							<Typography
+								variant="subtitle2"
+								color="text.secondary"
+								component="div"
+							>
+								{channelTitle}
+							</Typography>
+						</Link>
+					</CardContent>
+				</Box>
+				<CardMedia
+					component="img"
+					sx={{ width: thumbnail.width, height: thumbnail.height }}
+					image={thumbnail.url}
+					alt={title}
+				/>
+			</Stack>
 		</Card>
 	);
 };

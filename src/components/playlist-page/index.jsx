@@ -1,20 +1,18 @@
 import { Box, Container, Typography } from '@mui/material';
 import { useStoreState } from 'easy-peasy';
 import { useParams } from 'react-router-dom';
+import NotFound from '../not-found';
 import VideoLinkCard from '../video-link-card';
 
 const PlaylistPage = () => {
 	const playlists = useStoreState((state) => state.playlist.data);
 	const { playlistId } = useParams();
 	const current = playlists[playlistId];
+	if (!current) return <NotFound />;
 	const playlistItems = current.playlistItems;
-	console.log(current);
-	console.log(playlistItems);
-
-	if (!current) return;
 
 	return (
-		<Container maxWidth={'lg'} sx={{ my: 16 }}>
+		<Container maxWidth="lg" sx={{ my: 16 }}>
 			<Typography
 				variant="h4"
 				align="center"

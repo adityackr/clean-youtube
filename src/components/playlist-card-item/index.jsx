@@ -15,7 +15,7 @@ const PlaylistCardItem = ({
 		>
 			<Card
 				sx={{
-					height: '100%',
+					width: playlistThumbnail.width,
 					display: 'flex',
 					flexDirection: 'column',
 					margin: 1,
@@ -23,6 +23,10 @@ const PlaylistCardItem = ({
 			>
 				<CardMedia
 					component="img"
+					sx={{
+						width: playlistThumbnail.width,
+						height: playlistThumbnail.height,
+					}}
 					image={playlistThumbnail.url}
 					alt={playlistTitle}
 				/>
