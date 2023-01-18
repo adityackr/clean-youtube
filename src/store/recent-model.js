@@ -4,7 +4,6 @@ const recentModel = persist({
 	items: [],
 	addToRecent: action((state, playlistId) => {
 		state.items.unshift(playlistId);
-		state.items.slice(0, 5);
 	}),
 });
 
