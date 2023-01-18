@@ -40,11 +40,11 @@ const Navbar = () => {
 								<Typography variant="h4">Clean Youtube</Typography>
 							</Link>
 							<Link
-								href="https://stacklearner.com"
+								href="https://github.com/adityackr"
 								target={'_blank'}
 								sx={{ textDecoration: 'none', color: '#fff' }}
 							>
-								<Typography variant="body1">By Stack Learner</Typography>
+								<Typography variant="body1">By Aditya Chakraborty</Typography>
 							</Link>
 						</Stack>
 						<Button

@@ -11,7 +11,11 @@ const HomePage = () => {
 
 	return (
 		<Container maxWidth={'lg'} sx={{ my: 16 }}>
-			<Typography variant="h4" align="center" sx={{ marginBottom: 2 }}>
+			<Typography
+				variant="h4"
+				align="center"
+				sx={{ marginBottom: 2, textDecoration: 'underline' }}
+			>
 				My Playlists
 			</Typography>
 			{playlistArray.length > 0 && (
