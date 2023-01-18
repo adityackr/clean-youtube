@@ -9,8 +9,19 @@ import {
 	Typography,
 } from '@mui/material';
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, NavLink } from 'react-router-dom';
 import PlaylistForm from '../playlist-form';
+
+const activeStyle = {
+	textDecoration: 'none',
+	color: '#fff',
+	borderBottom: '3px solid #FF0000',
+};
+
+const normalStyle = {
+	textDecoration: 'none',
+	color: '#fff',
+};
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
@@ -48,45 +59,24 @@ const Navbar = () => {
 							</Link>
 						</Stack>
 						<Stack sx={{ flexGrow: 1 }} direction="row" spacing={3}>
-							<Link
+							<NavLink
 								to="/"
-								component={RouterLink}
-								sx={{
-									textDecoration: 'none',
-									color: '#fff',
-									'&:hover': {
-										borderBottom: '2px solid #FF0000',
-									},
-								}}
+								style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
 							>
 								<Typography variant="h6">Home</Typography>
-							</Link>
-							<Link
+							</NavLink>
+							<NavLink
 								to="/recent"
-								component={RouterLink}
-								sx={{
-									textDecoration: 'none',
-									color: '#fff',
-									'&:hover': {
-										borderBottom: '2px solid #FF0000',
-									},
-								}}
+								style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
 							>
 								<Typography variant="h6">Recent</Typography>
-							</Link>
-							<Link
+							</NavLink>
+							<NavLink
 								to="/favorites"
-								component={RouterLink}
-								sx={{
-									textDecoration: 'none',
-									color: '#fff',
-									'&:hover': {
-										borderBottom: '2px solid #FF0000',
-									},
-								}}
+								style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
 							>
 								<Typography variant="h6">Favorites</Typography>
-							</Link>
+							</NavLink>
 						</Stack>
 						<Button
 							variant="contained"
