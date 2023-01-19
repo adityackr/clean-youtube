@@ -63,3 +63,4 @@ yarn
 ```sh
 yarn dev
 ```
+> Don't forget to add your google developer api key in your .env file
