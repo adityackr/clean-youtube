@@ -15,19 +15,16 @@ const PlaylistCardItem = ({
 	const recent = useStoreActions((actions) => actions.recent);
 	const favorites = useStoreActions((actions) => actions.favorites);
 	const { items } = useStoreState((state) => state.favorites);
-	console.log(items);
 
 	const handleClick = () => {
 		recent.addToRecent(playlistId);
 	};
 
 	const addFavorite = () => {
-		// setFavorite(true);
 		favorites.addToFavorites(playlistId);
 	};
 
 	const removeFavorite = () => {
-		// setFavorite(false);
 		favorites.removeFromFavorites(playlistId);
 	};
 

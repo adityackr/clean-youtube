@@ -6,6 +6,7 @@ import Navbar from './components/navbar';
 import NotFound from './components/not-found';
 import PlaylistPage from './components/playlist-page';
 import RecentPage from './components/recent-page';
+import VideoPlayerPage from './components/video-player-page';
 
 const App = () => {
 	return (
@@ -13,6 +14,10 @@ const App = () => {
 			<CssBaseline />
 			<Navbar />
 			<Routes>
+				<Route
+					path="/player/:playlistId/:videoId"
+					element={<VideoPlayerPage />}
+				/>
 				<Route path="/player/:playlistId" element={<PlaylistPage />} />
 				<Route path="/recent" element={<RecentPage />} />
 				<Route path="/favorites" element={<FavoritesPage />} />

@@ -7,8 +7,16 @@ import {
 	Stack,
 	Typography,
 } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
-const VideoLinkCard = ({ title, channelTitle, thumbnail, channelId }) => {
+const VideoLinkCard = ({
+	title,
+	channelTitle,
+	thumbnail,
+	channelId,
+	playlistId,
+	videoId,
+}) => {
 	return (
 		<Card sx={{ marginTop: 3 }}>
 			<Stack
@@ -19,13 +27,19 @@ const VideoLinkCard = ({ title, channelTitle, thumbnail, channelId }) => {
 			>
 				<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 					<CardContent>
-						<Typography
-							component="div"
-							variant="subtitle1"
-							sx={{ fontWeight: 'bold ' }}
+						<Link
+							to={`/player/${playlistId}/${videoId}`}
+							component={RouterLink}
+							sx={{ textDecoration: 'none' }}
 						>
-							{title}
-						</Typography>
+							<Typography
+								component="div"
+								variant="subtitle1"
+								sx={{ fontWeight: 'bold ' }}
+							>
+								{title}
+							</Typography>
+						</Link>
 						<Link
 							href={`https://www.youtube.com/channel/${channelId}`}
 							target={'_blank'}
@@ -41,12 +55,18 @@ const VideoLinkCard = ({ title, channelTitle, thumbnail, channelId }) => {
 						</Link>
 					</CardContent>
 				</Box>
-				<CardMedia
-					component="img"
-					sx={{ width: thumbnail.width, height: thumbnail.height }}
-					image={thumbnail.url}
-					alt={title}
-				/>
+				<Link
+					to={`/player/${playlistId}/${videoId}`}
+					component={RouterLink}
+					sx={{ textDecoration: 'none' }}
+				>
+					<CardMedia
+						component="img"
+						sx={{ width: thumbnail.width, height: thumbnail.height }}
+						image={thumbnail.url}
+						alt={title}
+					/>
+				</Link>
 			</Stack>
 		</Card>
 	);
