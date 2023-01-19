@@ -7,7 +7,19 @@ import {
 	Stack,
 	Typography,
 } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+const activeClass = {
+	color: '#FF0000',
+	backgroundColor: '#0f0f0f',
+	textDecoration: 'none',
+};
+
+const nonActiveClass = {
+	backgroundColor: '#fff',
+	color: '#0f0f0f',
+	textDecoration: 'none',
+};
 
 const VideoLinkCard = ({
 	title,
@@ -27,10 +39,11 @@ const VideoLinkCard = ({
 			>
 				<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 					<CardContent>
-						<Link
+						<NavLink
 							to={`/player/${playlistId}/${videoId}`}
-							component={RouterLink}
-							sx={{ textDecoration: 'none' }}
+							style={({ isActive }) =>
+								isActive ? activeClass : nonActiveClass
+							}
 						>
 							<Typography
 								component="div"
@@ -39,7 +52,7 @@ const VideoLinkCard = ({
 							>
 								{title}
 							</Typography>
-						</Link>
+						</NavLink>
 						<Link
 							href={`https://www.youtube.com/channel/${channelId}`}
 							target={'_blank'}
@@ -55,10 +68,9 @@ const VideoLinkCard = ({
 						</Link>
 					</CardContent>
 				</Box>
-				<Link
+				<NavLink
 					to={`/player/${playlistId}/${videoId}`}
-					component={RouterLink}
-					sx={{ textDecoration: 'none' }}
+					style={({ isActive }) => (isActive ? activeClass : nonActiveClass)}
 				>
 					<CardMedia
 						component="img"
@@ -66,7 +78,7 @@ const VideoLinkCard = ({
 						image={thumbnail.url}
 						alt={title}
 					/>
-				</Link>
+				</NavLink>
 			</Stack>
 		</Card>
 	);
