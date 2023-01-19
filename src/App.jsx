@@ -6,11 +6,13 @@ import Navbar from './components/navbar';
 import NotFound from './components/not-found';
 import PlaylistPage from './components/playlist-page';
 import RecentPage from './components/recent-page';
+import ScrollToTop from './components/scroll-to-top';
 import VideoPlayerPage from './components/video-player-page';
 
 const App = () => {
 	return (
 		<BrowserRouter>
+			<ScrollToTop />
 			<CssBaseline />
 			<Navbar />
 			<Routes>
