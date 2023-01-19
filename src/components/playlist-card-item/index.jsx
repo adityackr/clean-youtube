@@ -36,6 +36,7 @@ const PlaylistCardItem = ({
 				flexDirection: 'column',
 				margin: 1,
 				paddingBottom: 2,
+				border: '1px solid #0F0F0F',
 			}}
 		>
 			<Stack direction={'column'} alignItems="center">
@@ -80,21 +81,6 @@ const PlaylistCardItem = ({
 					/>
 				)}
 			</Stack>
-			{/* <Box sx={{ flexGrow: 1 }}></Box> */}
-			{/* <CardActions disableSpacing>
-					<Button to={`/player/${playlistId}`} component={Link}>
-						<Stack direction={'row'} spacing={1} alignItems={'center'}>
-							<PlayCircleOutline sx={{ color: '#FF0000' }} />
-							<Typography
-								variant="body2"
-								fontWeight={600}
-								sx={{ color: '#FF0000' }}
-							>
-								Start Tutorial
-							</Typography>
-						</Stack>
-					</Button>
-				</CardActions> */}
 		</Card>
 	);
 };

@@ -18,7 +18,7 @@ const VideoLinkCard = ({
 	videoId,
 }) => {
 	return (
-		<Card sx={{ marginTop: 3 }}>
+		<Card sx={{ marginTop: 3, border: '1px solid #FF0000' }}>
 			<Stack
 				direction={{ sm: 'column', md: 'row' }}
 				justifyContent="space-between"
