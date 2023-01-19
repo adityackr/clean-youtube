@@ -19,16 +19,19 @@ const FavoritesPage = () => {
 			</Typography>
 			{favoritesArray.length > 0 && (
 				<Grid container alignItems="stretch">
-					{favoritesArray.map((item) => (
-						<Grid item xs={12} md={6} lg={4} mb={2} key={item.playlistId}>
-							<PlaylistCardItem
-								playlistId={item.playlistId}
-								playlistThumbnail={item.playlistThumbnail}
-								playlistTitle={item.playlistTitle}
-								channelTitle={item.channelTitle}
-							/>
-						</Grid>
-					))}
+					{favoritesArray.map(
+						(item) =>
+							item && (
+								<Grid item xs={12} md={6} lg={4} mb={2} key={item.playlistId}>
+									<PlaylistCardItem
+										playlistId={item.playlistId}
+										playlistThumbnail={item.playlistThumbnail}
+										playlistTitle={item.playlistTitle}
+										channelTitle={item.channelTitle}
+									/>
+								</Grid>
+							)
+					)}
 				</Grid>
 			)}
 		</Container>

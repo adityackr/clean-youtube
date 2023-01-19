@@ -1,3 +1,4 @@
+import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Card, CardContent, CardMedia, Link, Typography } from '@mui/material';
@@ -11,13 +12,17 @@ const PlaylistCardItem = ({
 	channelTitle,
 	playlistId,
 }) => {
-	// const [favorite, setFavorite] = useState(false);
 	const recent = useStoreActions((actions) => actions.recent);
 	const favorites = useStoreActions((actions) => actions.favorites);
+	const playlist = useStoreActions((actions) => actions.playlist);
 	const { items } = useStoreState((state) => state.favorites);
 
 	const handleClick = () => {
 		recent.addToRecent(playlistId);
+	};
+
+	const handleDelete = () => {
+		playlist.deletePlaylist(playlistId);
 	};
 
 	const addFavorite = () => {
@@ -68,18 +73,24 @@ const PlaylistCardItem = ({
 						</Typography>
 					</CardContent>
 				</Link>
-				{items.includes(playlistId) && (
-					<FavoriteIcon
-						onClick={removeFavorite}
-						sx={{ color: '#FF0000', cursor: 'pointer' }}
+				<Stack direction="row" spacing={15}>
+					{items.includes(playlistId) && (
+						<FavoriteIcon
+							onClick={removeFavorite}
+							sx={{ color: '#FF0000', cursor: 'pointer' }}
+						/>
+					)}
+					{!items.includes(playlistId) && (
+						<FavoriteBorderIcon
+							onClick={addFavorite}
+							sx={{ color: '#FF0000', cursor: 'pointer' }}
+						/>
+					)}
+					<DeleteIcon
+						onClick={handleDelete}
+						sx={{ color: '#ff0000', cursor: 'pointer' }}
 					/>
-				)}
-				{!items.includes(playlistId) && (
-					<FavoriteBorderIcon
-						onClick={addFavorite}
-						sx={{ color: '#FF0000', cursor: 'pointer' }}
-					/>
-				)}
+				</Stack>
 			</Stack>
 		</Card>
 	);

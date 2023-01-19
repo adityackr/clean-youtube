@@ -18,16 +18,19 @@ const RecentPage = () => {
 			</Typography>
 			{recentArray.length > 0 && (
 				<Grid container alignItems="stretch">
-					{recentArray.map((item) => (
-						<Grid item xs={12} md={6} lg={4} mb={2} key={item.playlistId}>
-							<PlaylistCardItem
-								playlistId={item.playlistId}
-								playlistThumbnail={item.playlistThumbnail}
-								playlistTitle={item.playlistTitle}
-								channelTitle={item.channelTitle}
-							/>
-						</Grid>
-					))}
+					{recentArray.map(
+						(item) =>
+							item && (
+								<Grid item xs={12} md={6} lg={4} mb={2} key={item.playlistId}>
+									<PlaylistCardItem
+										playlistId={item.playlistId}
+										playlistThumbnail={item.playlistThumbnail}
+										playlistTitle={item.playlistTitle}
+										channelTitle={item.channelTitle}
+									/>
+								</Grid>
+							)
+					)}
 				</Grid>
 			)}
 		</Container>
