@@ -43,3 +43,23 @@ When we watch a playlist in youtube, we often distracted by other recommended vi
 
 ![Video player](./screenshots/cy-04.png)
 ![Video player](./screenshots/cy-05.png)
+
+## How to use this repository
+
+### Clone the repository
+
+```sh
+git clone https://github.com/adityackr/clean-youtube.git
+```
+
+### Install all dependencies
+
+```sh
+yarn
+```
+
+### Run the server
+
+```sh
+yarn dev
+```
