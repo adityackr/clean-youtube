@@ -17,7 +17,7 @@ const FavoritesPage = () => {
 				Favorite Playlists
 			</Typography>
 			{favorites.length === 0 && (
-				<Typography variant="h3" align="center" sx={{ marginBottom: 2 }}>
+				<Typography variant="body2" align="center" sx={{ marginBottom: 2 }}>
 					There is no playlist. Please add a new.
 				</Typography>
 			)}

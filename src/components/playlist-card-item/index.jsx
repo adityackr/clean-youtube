@@ -15,16 +15,18 @@ const PlaylistCardItem = ({
 	const recent = useStoreActions((actions) => actions.recent);
 	const favorites = useStoreActions((actions) => actions.favorites);
 	const playlist = useStoreActions((actions) => actions.playlist);
-	const { items } = useStoreState((state) => state.favorites);
+	let favoritesItem = useStoreState((state) => state.favorites.items);
+	const recentItem = useStoreState((state) => state.recent.items);
 
 	const handleClick = () => {
 		recent.addToRecent(playlistId);
 	};
 
 	const handleDelete = () => {
-		const index = items.indexOf(playlistId);
+		const recentIndex = recentItem.indexOf(playlistId);
 		playlist.deletePlaylist(playlistId);
-		items.splice(index, 1);
+		favoritesItem = favoritesItem.filter((item) => item !== playlistId);
+		recentItem.splice(recentIndex, 1);
 	};
 
 	const addFavorite = () => {
@@ -80,13 +82,13 @@ const PlaylistCardItem = ({
 					</CardContent>
 				</Link>
 				<Stack direction="row" spacing={15}>
-					{items.includes(playlistId) && (
+					{favoritesItem.includes(playlistId) && (
 						<FavoriteIcon
 							onClick={removeFavorite}
 							sx={{ color: '#FF0000', cursor: 'pointer' }}
 						/>
 					)}
-					{!items.includes(playlistId) && (
+					{!favoritesItem.includes(playlistId) && (
 						<FavoriteBorderIcon
 							onClick={addFavorite}
 							sx={{ color: '#FF0000', cursor: 'pointer' }}

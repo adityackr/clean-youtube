@@ -4,7 +4,9 @@ const recentModel = persist(
 	{
 		items: [],
 		addToRecent: action((state, playlistId) => {
-			state.items.unshift(playlistId);
+			if (!state.items.includes(playlistId)) {
+				state.items.unshift(playlistId);
+			}
 		}),
 	},
 	{
