@@ -24,11 +24,14 @@ const playlistModel = persist(
 				playlistId,
 				{ getState }
 			) => {
+				setError('');
+
 				if (getState().data[playlistId]) {
 					return;
 				}
 
 				setLoading(true);
+
 				try {
 					const playlist = await getPlaylist(playlistId);
 					addPlaylist(playlist);

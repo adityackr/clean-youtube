@@ -3,14 +3,24 @@ import { useStoreState } from 'easy-peasy';
 import PlaylistCardItem from '../playlist-card-item';
 
 const HomePage = () => {
-	const playlists = useStoreState((state) => state.playlist.data);
+	const { data, isLoading } = useStoreState((state) => state.playlist);
 
-	const playlistArray = Object.values(playlists);
+	const playlistArray = Object.values(data);
 
 	// console.log(playlistArray);
 
 	return (
 		<Container maxWidth={'lg'} sx={{ my: 16 }}>
+			{isLoading && (
+				<Typography
+					variant="h3"
+					align="center"
+					color={'#FF0000'}
+					sx={{ marginBottom: 2 }}
+				>
+					Please wait...
+				</Typography>
+			)}
 			<Typography
 				variant="h4"
 				align="center"
