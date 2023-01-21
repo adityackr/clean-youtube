@@ -2,6 +2,7 @@ import { Box, Button, Card, Container, Typography } from '@mui/material';
 import { useStoreState } from 'easy-peasy';
 import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
+import NotFound from '../not-found';
 import VideoLinkCard from '../video-link-card';
 
 const VideoPlayerPage = () => {
@@ -15,8 +16,8 @@ const VideoPlayerPage = () => {
 	)[0];
 
 	const opts = {
-		height: '390',
-		width: '640',
+		height: '540',
+		width: '1135',
 		playerVars: {
 			autoplay: 1,
 		},
@@ -26,7 +27,7 @@ const VideoPlayerPage = () => {
 		event.target.pauseVideo();
 	};
 	return (
-		<Container maxWidth="lg" sx={{ my: 16 }}>
+		<Container maxWidth="lg" sx={{ my: 14 }}>
 			<YouTube
 				style={{
 					display: 'flex',
