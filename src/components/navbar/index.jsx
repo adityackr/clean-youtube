@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { Link as RouterLink, NavLink } from 'react-router-dom';
+import routesData from '../../data/routesData';
 import PlaylistForm from '../playlist-form';
 
 const activeStyle = {
@@ -59,24 +60,17 @@ const Navbar = () => {
 							</Link>
 						</Stack>
 						<Stack sx={{ flexGrow: 1 }} direction="row" spacing={3}>
-							<NavLink
-								to="/"
-								style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
-							>
-								<Typography variant="h6">Home</Typography>
-							</NavLink>
-							<NavLink
-								to="/recent"
-								style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
-							>
-								<Typography variant="h6">Recent</Typography>
-							</NavLink>
-							<NavLink
-								to="/favorites"
-								style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
-							>
-								<Typography variant="h6">Favorites</Typography>
-							</NavLink>
+							{routesData.map((route) => (
+								<NavLink
+									key={route.id}
+									to={route.path}
+									style={({ isActive }) =>
+										isActive ? activeStyle : normalStyle
+									}
+								>
+									<Typography variant="h6">{route.name}</Typography>
+								</NavLink>
+							))}
 						</Stack>
 						<Button
 							variant="contained"
