@@ -6,7 +6,6 @@ const FavoritesPage = () => {
 	const playlists = useStoreState((state) => state.playlist.data);
 	const favorites = useStoreState((state) => state.favorites.items);
 	const favoritesArray = favorites.map((item) => playlists[item]);
-	console.log(favorites);
 
 	return (
 		<Container maxWidth={'lg'} sx={{ my: 16 }}>

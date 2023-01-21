@@ -7,8 +7,6 @@ const HomePage = () => {
 
 	const playlistArray = Object.values(data);
 
-	// console.log(playlistArray);
-
 	return (
 		<Container maxWidth={'lg'} sx={{ my: 16 }}>
 			{isLoading && (
