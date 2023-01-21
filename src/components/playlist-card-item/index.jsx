@@ -16,17 +16,16 @@ const PlaylistCardItem = ({
 	const favorites = useStoreActions((actions) => actions.favorites);
 	const playlist = useStoreActions((actions) => actions.playlist);
 	let favoritesItem = useStoreState((state) => state.favorites.items);
-	const recentItem = useStoreState((state) => state.recent.items);
+	let recentItem = useStoreState((state) => state.recent.items);
 
 	const handleClick = () => {
 		recent.addToRecent(playlistId);
 	};
 
 	const handleDelete = () => {
-		const recentIndex = recentItem.indexOf(playlistId);
 		playlist.deletePlaylist(playlistId);
 		favoritesItem = favoritesItem.filter((item) => item !== playlistId);
-		recentItem.splice(recentIndex, 1);
+		recentItem = recentItem.filter((item) => item !== playlistId);
 	};
 
 	const addFavorite = () => {
