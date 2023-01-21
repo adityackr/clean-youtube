@@ -4,7 +4,7 @@
 
 ## Overview
 
-When we watch a playlist in youtube, we often distracted by other recommended videos. This application helps us to not distract by any other videos. We just paste the playlist id. And we watch the playlist without distracting. This app will not show any recommended videos or any ad. We watch the playlist as if we watched in a course site video player.
+When we watch a playlist in youtube, we often distracted by other recommended videos. This application helps us to not distract by any other videos. We just paste the valid playlist id or link. And we watch the playlist without any distraction. This app will not show any recommended videos or any ad. We watch the playlist as if we watched in a course site video player.
 
 ## Features
 
@@ -14,6 +14,7 @@ When we watch a playlist in youtube, we often distracted by other recommended vi
 - You can add your favorites playlist in favorites page
 - When you click a playlist card it will show the details of playlist
 - On the playlist page you can click any video of that playlist.
+- All playlists will save in the browser localStorage.
 - You can watch the video without any distraction.
 
 ## Used Tools

@@ -28,12 +28,17 @@ const PlaylistForm = ({ open, handleClose }) => {
 				alert('The playlist is already exists. Please enter a new one.');
 			}
 			playlist.getPlaylist(id);
+			setState('');
+			handleClose();
+			return;
 		}
 
 		if (Object.keys(data).includes(state)) {
 			alert('The playlist is already exists. Please enter a new one.');
 		}
+
 		playlist.getPlaylist(state);
+
 		setState('');
 		handleClose();
 	};
