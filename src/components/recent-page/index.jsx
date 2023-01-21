@@ -16,6 +16,11 @@ const RecentPage = () => {
 			>
 				Recent Playlists
 			</Typography>
+			{recent.length === 0 && (
+				<Typography variant="h3" align="center" sx={{ marginBottom: 2 }}>
+					There is no playlist. Please add a new.
+				</Typography>
+			)}
 			{recentArray.length > 0 && (
 				<Grid container alignItems="stretch">
 					{recentArray.map(

@@ -28,6 +28,11 @@ const HomePage = () => {
 			>
 				My Playlists
 			</Typography>
+			{playlistArray.length === 0 && (
+				<Typography variant="h3" align="center" sx={{ marginBottom: 2 }}>
+					There is no playlist. Please add a new.
+				</Typography>
+			)}
 			{playlistArray.length > 0 && (
 				<Grid container alignItems="stretch">
 					{playlistArray.map((item) => (

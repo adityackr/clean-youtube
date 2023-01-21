@@ -22,7 +22,9 @@ const PlaylistCardItem = ({
 	};
 
 	const handleDelete = () => {
+		const index = items.indexOf(playlistId);
 		playlist.deletePlaylist(playlistId);
+		items.splice(index, 1);
 	};
 
 	const addFavorite = () => {

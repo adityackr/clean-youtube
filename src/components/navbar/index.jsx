@@ -49,14 +49,16 @@ const Navbar = () => {
 								component={RouterLink}
 								sx={{ textDecoration: 'none', color: '#fff' }}
 							>
-								<Typography variant="h4">Clean YouTube</Typography>
+								<Typography variant="h5">Clean YouTube</Typography>
 							</Link>
 							<Link
 								href="https://github.com/adityackr"
 								target={'_blank'}
 								sx={{ textDecoration: 'none', color: '#fff' }}
 							>
-								<Typography variant="body1">By Aditya Chakraborty</Typography>
+								<Typography variant="subtitle2">
+									By Aditya Chakraborty
+								</Typography>
 							</Link>
 						</Stack>
 						<Stack sx={{ flexGrow: 1 }} direction="row" spacing={3}>
@@ -68,11 +70,12 @@ const Navbar = () => {
 										isActive ? activeStyle : normalStyle
 									}
 								>
-									<Typography variant="h6">{route.name}</Typography>
+									<Typography variant="body2">{route.name}</Typography>
 								</NavLink>
 							))}
 						</Stack>
 						<Button
+							size="small"
 							variant="contained"
 							onClick={handleClickOpen}
 							sx={{
