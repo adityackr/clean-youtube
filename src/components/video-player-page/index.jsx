@@ -1,4 +1,4 @@
-import { Box, Card, Container, Typography } from '@mui/material';
+import { Box, Button, Card, Container, Typography } from '@mui/material';
 import { useStoreState } from 'easy-peasy';
 import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
@@ -39,6 +39,13 @@ const VideoPlayerPage = () => {
 				onReady={onPLayerReady}
 			/>
 			<Card sx={{ marginTop: 2, padding: 2, border: '1px #0F0F0F solid' }}>
+				<Button
+					variant="outlined"
+					href={`https://www.youtube.com/channel/${current.channelId}`}
+					target={'_blank'}
+				>
+					{current.channelTitle}
+				</Button>
 				<Typography variant="h6" sx={{ marginBottom: 2 }}>
 					{video.title}
 				</Typography>
@@ -49,7 +56,6 @@ const VideoPlayerPage = () => {
 					<VideoLinkCard
 						key={item.contentDetails.videoId}
 						channelTitle={current.channelTitle}
-						channelId={current.channelId}
 						title={item.title}
 						thumbnail={item.thumbnail}
 						playlistId={playlistId}

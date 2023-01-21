@@ -42,6 +42,10 @@ const PlaylistCardItem = ({
 				margin: 1,
 				paddingBottom: 2,
 				border: '1px solid #0F0F0F',
+				'&:hover': {
+					borderColor: '#FF0000',
+					backgroundColor: '#b6b6b6',
+				},
 			}}
 		>
 			<Stack direction={'column'} alignItems="center">

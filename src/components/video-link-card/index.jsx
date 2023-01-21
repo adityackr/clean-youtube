@@ -3,7 +3,6 @@ import {
 	Card,
 	CardContent,
 	CardMedia,
-	Link,
 	Stack,
 	Typography,
 } from '@mui/material';
@@ -11,40 +10,46 @@ import { NavLink } from 'react-router-dom';
 
 const activeClass = {
 	color: '#FF0000',
-	backgroundColor: '#0f0f0f',
+	border: '2px solid #FF0000',
+	borderRadius: 5,
 	textDecoration: 'none',
+	marginTop: 10,
 };
 
 const nonActiveClass = {
 	backgroundColor: '#fff',
 	color: '#0f0f0f',
 	textDecoration: 'none',
+	marginTop: 10,
 };
 
 const VideoLinkCard = ({
 	title,
 	channelTitle,
 	thumbnail,
-	channelId,
 	playlistId,
 	videoId,
 }) => {
 	return (
-		<Card sx={{ marginTop: 3, border: '1px solid #FF0000' }}>
-			<Stack
-				direction={{ sm: 'column', md: 'row' }}
-				justifyContent="space-between"
-				alignItems="center"
-				spacing={{ sm: 1, md: 2 }}
+		<NavLink
+			to={`/player/${playlistId}/${videoId}`}
+			style={({ isActive }) => (isActive ? activeClass : nonActiveClass)}
+		>
+			<Card
+				sx={{
+					'&:hover': {
+						backgroundColor: '#b6b6b6',
+					},
+				}}
 			>
-				<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-					<CardContent>
-						<NavLink
-							to={`/player/${playlistId}/${videoId}`}
-							style={({ isActive }) =>
-								isActive ? activeClass : nonActiveClass
-							}
-						>
+				<Stack
+					direction={{ sm: 'column', md: 'row' }}
+					justifyContent="space-between"
+					alignItems="center"
+					spacing={{ sm: 1, md: 2 }}
+				>
+					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+						<CardContent>
 							<Typography
 								component="div"
 								variant="subtitle1"
@@ -52,12 +57,6 @@ const VideoLinkCard = ({
 							>
 								{title}
 							</Typography>
-						</NavLink>
-						<Link
-							href={`https://www.youtube.com/channel/${channelId}`}
-							target={'_blank'}
-							sx={{ textDecoration: 'none', color: '#000' }}
-						>
 							<Typography
 								variant="subtitle2"
 								color="text.secondary"
@@ -65,22 +64,17 @@ const VideoLinkCard = ({
 							>
 								{channelTitle}
 							</Typography>
-						</Link>
-					</CardContent>
-				</Box>
-				<NavLink
-					to={`/player/${playlistId}/${videoId}`}
-					style={({ isActive }) => (isActive ? activeClass : nonActiveClass)}
-				>
+						</CardContent>
+					</Box>
 					<CardMedia
 						component="img"
 						sx={{ width: thumbnail.width, height: thumbnail.height }}
 						image={thumbnail.url}
 						alt={title}
 					/>
-				</NavLink>
-			</Stack>
-		</Card>
+				</Stack>
+			</Card>
+		</NavLink>
 	);
 };
 

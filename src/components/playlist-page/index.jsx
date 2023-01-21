@@ -26,7 +26,6 @@ const PlaylistPage = () => {
 					<VideoLinkCard
 						key={item.contentDetails.videoId}
 						channelTitle={current.channelTitle}
-						channelId={current.channelId}
 						title={item.title}
 						thumbnail={item.thumbnail}
 						playlistId={playlistId}
