@@ -11,6 +11,7 @@ const PlaylistCardItem = ({
 	playlistTitle,
 	channelTitle,
 	playlistId,
+	deleteBtnDisplay,
 }) => {
 	const recent = useStoreActions((actions) => actions.recent);
 	const favorites = useStoreActions((actions) => actions.favorites);
@@ -23,9 +24,12 @@ const PlaylistCardItem = ({
 	};
 
 	const handleDelete = () => {
-		playlist.deletePlaylist(playlistId);
-		favoritesItem = favoritesItem.filter((item) => item !== playlistId);
-		recentItem = recentItem.filter((item) => item !== playlistId);
+		const decision = confirm('Do you really want to delete this?');
+		if (decision) {
+			playlist.deletePlaylist(playlistId);
+			favoritesItem = favoritesItem.filter((item) => item !== playlistId);
+			recentItem = recentItem.filter((item) => item !== playlistId);
+		}
 	};
 
 	const addFavorite = () => {
@@ -95,7 +99,11 @@ const PlaylistCardItem = ({
 					)}
 					<DeleteIcon
 						onClick={handleDelete}
-						sx={{ color: '#ff0000', cursor: 'pointer' }}
+						sx={{
+							color: '#ff0000',
+							cursor: 'pointer',
+							display: deleteBtnDisplay,
+						}}
 					/>
 				</Stack>
 			</Stack>

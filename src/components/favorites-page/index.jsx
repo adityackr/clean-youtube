@@ -32,6 +32,7 @@ const FavoritesPage = () => {
 										playlistThumbnail={item.playlistThumbnail}
 										playlistTitle={item.playlistTitle}
 										channelTitle={item.channelTitle}
+										deleteBtnDisplay="none"
 									/>
 								</Grid>
 							)
