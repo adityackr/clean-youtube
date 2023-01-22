@@ -16,8 +16,8 @@ const VideoPlayerPage = () => {
 	)[0];
 
 	const opts = {
-		height: '540',
-		width: '1135',
+		height: '480',
+		width: '854',
 		playerVars: {
 			autoplay: 1,
 		},
@@ -27,13 +27,12 @@ const VideoPlayerPage = () => {
 		event.target.pauseVideo();
 	};
 	return (
-		<Container maxWidth="lg" sx={{ my: 14 }}>
+		<Container maxWidth="lg">
 			<YouTube
 				style={{
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
-					backgroundColor: '#0F0F0F',
 				}}
 				videoId={videoId}
 				opts={opts}

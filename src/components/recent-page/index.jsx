@@ -8,7 +8,7 @@ const RecentPage = () => {
 	const recentArray = recent.map((item) => playlists[item]).slice(0, 5);
 
 	return (
-		<Container maxWidth={'lg'} sx={{ my: 16 }}>
+		<Container maxWidth={'lg'}>
 			<Typography
 				variant="h4"
 				align="center"

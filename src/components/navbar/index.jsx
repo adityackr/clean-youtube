@@ -35,7 +35,7 @@ const Navbar = () => {
 		setOpen(false);
 	};
 	return (
-		<Box sx={{ flexGrow: 1 }}>
+		<Box sx={{ flexGrow: 1, marginBottom: 16 }}>
 			<AppBar
 				position="fixed"
 				color="default"

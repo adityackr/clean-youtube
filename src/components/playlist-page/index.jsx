@@ -12,7 +12,7 @@ const PlaylistPage = () => {
 	const playlistItems = current.playlistItems;
 
 	return (
-		<Container maxWidth="lg" sx={{ my: 16 }}>
+		<Container maxWidth="lg">
 			<Typography
 				variant="h4"
 				align="center"

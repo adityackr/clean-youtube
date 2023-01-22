@@ -1,7 +1,7 @@
 import { Container, Typography } from '@mui/material';
 
 const NotFound = () => (
-	<Container maxWidth={'lg'} sx={{ my: 16 }}>
+	<Container maxWidth={'lg'}>
 		<Typography variant="h2" align="center">
 			404 Page Not Found
 		</Typography>

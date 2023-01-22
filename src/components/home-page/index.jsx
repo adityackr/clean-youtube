@@ -8,7 +8,7 @@ const HomePage = () => {
 	const playlistArray = Object.values(data);
 
 	return (
-		<Container maxWidth={'lg'} sx={{ my: 16 }}>
+		<Container maxWidth={'lg'}>
 			{isLoading && (
 				<Typography
 					variant="h3"
