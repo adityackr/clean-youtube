@@ -36,7 +36,7 @@ const playlistModel = persist(
 					const playlist = await getPlaylist(playlistId);
 					addPlaylist(playlist);
 				} catch (e) {
-					setError(e.response?.data?.error?.message || 'Something went wrong');
+					setError(e.response?.data?.error?.message);
 				} finally {
 					setLoading(false);
 				}
