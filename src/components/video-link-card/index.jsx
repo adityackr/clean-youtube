@@ -68,8 +68,11 @@ const VideoLinkCard = ({
 					</Box>
 					<CardMedia
 						component="img"
-						sx={{ width: thumbnail.width, height: thumbnail.height }}
-						image={thumbnail.url}
+						sx={{
+							width: thumbnail?.width,
+							height: thumbnail?.height,
+						}}
+						image={thumbnail?.url}
 						alt={title}
 					/>
 				</Stack>

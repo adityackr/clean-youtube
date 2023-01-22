@@ -10,6 +10,7 @@ const PlaylistPage = () => {
 	const current = playlists[playlistId];
 	if (!current) return <NotFound />;
 	const playlistItems = current.playlistItems;
+	console.log(playlistItems);
 
 	return (
 		<Container maxWidth="lg">
