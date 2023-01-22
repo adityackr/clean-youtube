@@ -19,7 +19,7 @@ const VideoPlayerPage = () => {
 		height: '480',
 		width: '854',
 		playerVars: {
-			autoplay: 1,
+			autoplay: 0,
 		},
 	};
 
