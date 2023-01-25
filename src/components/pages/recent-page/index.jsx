@@ -6,7 +6,7 @@ const RecentPage = () => {
 	const recent = useStoreState((state) => state.recent.items);
 	const recentArray = recent.map((item) => playlists[item]).slice(0, 5);
 
-	return <PageLayout items={recentArray} pageTitle={'Favorite Playlists'} />;
+	return <PageLayout items={recentArray} pageTitle={'Recent Playlists'} />;
 };
 
 export default RecentPage;

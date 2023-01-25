@@ -27,8 +27,10 @@ const PlaylistCardItem = ({
 		const decision = confirm('Do you really want to delete this?');
 		if (decision) {
 			playlist.deletePlaylist(playlistId);
-			favoritesItem = favoritesItem.filter((item) => item !== playlistId);
-			recentItem = recentItem.filter((item) => item !== playlistId);
+			let favoritesIndex = favoritesItem.findIndex(item => item === playlistId)
+			favoritesItem = favoritesItem.splice(favoritesIndex, 1);
+			const recentIndex = recentItem.findIndex((item) => item === playlistId);
+			recentItem = recentItem.splice(recentIndex, 1);
 		}
 	};
 
