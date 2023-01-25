@@ -1,9 +1,9 @@
 const routesData = [
-	// {
-	// 	id: 'nav-01',
-	// 	path: '/',
-	// 	name: 'Home',
-	// },
+	{
+		id: 'nav-01',
+		path: '/',
+		name: 'Home',
+	},
 	{
 		id: 'nav-02',
 		path: '/recent',

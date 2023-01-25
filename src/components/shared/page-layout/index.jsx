@@ -1,40 +1,26 @@
 import { Container, Grid, Typography } from '@mui/material';
-import { useStoreState } from 'easy-peasy';
 import PlaylistCardItem from '../playlist-card-item';
 
-const HomePage = () => {
-	const { data, isLoading } = useStoreState((state) => state.playlist);
-
-	const playlistArray = Object.values(data);
-
+const PageLayout = ({ children, items, pageTitle }) => {
 	return (
 		<Container maxWidth={'lg'}>
-			{isLoading && (
-				<Typography
-					variant="h3"
-					align="center"
-					color={'#FF0000'}
-					sx={{ marginBottom: 2 }}
-				>
-					Please wait...
-				</Typography>
-			)}
+			{children}
 			<Typography
 				variant="h4"
 				align="center"
 				sx={{ marginBottom: 2, textDecoration: 'underline' }}
 			>
-				My Playlists
+				{pageTitle}
 			</Typography>
-			{playlistArray.length === 0 && (
+			{items.length === 0 && (
 				<Typography variant="body2" align="center" sx={{ marginBottom: 2 }}>
 					There is no playlist. Please add a new.
 				</Typography>
 			)}
-			{playlistArray.length > 0 && (
-				<Grid container alignItems="stretch">
-					{playlistArray.map((item) => (
-						<Grid item xs={12} md={6} lg={4} mb={2} key={item.playlistId}>
+			{items.length > 0 && (
+				<Grid container alignItems="stretch" justifyContent="center">
+					{items.map((item) => (
+						<Grid item md={6} lg={4} mb={2} key={item.playlistId}>
 							<PlaylistCardItem
 								playlistId={item.playlistId}
 								playlistThumbnail={item.playlistThumbnail}
@@ -49,4 +35,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default PageLayout;

@@ -1,13 +1,13 @@
 import { CssBaseline } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import FavoritesPage from './components/favorites-page';
-import HomePage from './components/home-page';
-import Navbar from './components/navbar';
-import NotFound from './components/not-found';
-import PlaylistPage from './components/playlist-page';
-import RecentPage from './components/recent-page';
-import ScrollToTop from './components/scroll-to-top';
-import VideoPlayerPage from './components/video-player-page';
+import FavoritesPage from './components/pages/favorites-page';
+import HomePage from './components/pages/home-page';
+import NotFound from './components/pages/not-found';
+import PlaylistPage from './components/pages/playlist-page';
+import RecentPage from './components/pages/recent-page';
+import VideoPlayerPage from './components/pages/video-player-page';
+import Navbar from './components/shared/navbar';
+import ScrollToTop from './components/utils/scroll-to-top';
 
 const App = () => {
 	return (

@@ -1,8 +1,8 @@
 import { Box, Container, Typography } from '@mui/material';
 import { useStoreState } from 'easy-peasy';
 import { useParams } from 'react-router-dom';
+import VideoLinkCard from '../../shared/video-link-card';
 import NotFound from '../not-found';
-import VideoLinkCard from '../video-link-card';
 
 const PlaylistPage = () => {
 	const playlists = useStoreState((state) => state.playlist.data);
