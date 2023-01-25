@@ -1,7 +1,7 @@
 import { Container, Grid, Typography } from '@mui/material';
 import PlaylistCardItem from '../playlist-card-item';
 
-const PageLayout = ({ children, items, pageTitle }) => {
+const PageLayout = ({ children, items, pageTitle, deleteBtnDisplay }) => {
 	return (
 		<Container maxWidth={'lg'}>
 			{children}
@@ -26,6 +26,7 @@ const PageLayout = ({ children, items, pageTitle }) => {
 								playlistThumbnail={item.playlistThumbnail}
 								playlistTitle={item.playlistTitle}
 								channelTitle={item.channelTitle}
+								deleteBtnDisplay={deleteBtnDisplay}
 							/>
 						</Grid>
 					))}
